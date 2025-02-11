@@ -2,103 +2,43 @@
   "exercicios": [
     {
       "id": "01",
-      "enunciado": "Crie um programa que leia o nome do usuário e escreva uma saudação personalizada: 'Olá, [nome do usuário]! Bem-vindo ao nosso programa!'.",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.println(\"Entre com o seu nome: \" );\nString nome = scan.nextLine();\nSystem.out.printf(\"\\nOlá, %s! Bem-vindo ao nosso programa!%n\", nome);"
+      "enunciado": "Implemente um sistema de semáforo usando switch case. Receba um estado (vermelho, amarelo ou verde) e determine a ação apropriada.",
+      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\n\tSystem.out.println(\"Digite a cor do semáforo: \");\n\tString corDoSemaforo = scan.nextLine().toLowerCase();\n\n\tswitch(corDoSemaforo) {\n\tcase \"verde\":\n\t\tSystem.out.println(\"Siga!\");\n\t\tbreak;\n\tcase \"amarelo\":\n\t\tSystem.out.println(\"Atenção!\");\n\t\tbreak;\n\tcase \"vermelho\":\n\t\tSystem.out.println(\"Pare!\");\n\t\tbreak;\n\tdefault:\n\t\tSystem.out.println(\"Informação inválida!\");\n\t}"
     },
     {
       "id": "02",
-      "enunciado": "Crie um programa que leia o preço de dois produtos e escreva o valor total da compra. Lembre-se que valores são números fracionados, ou seja, declare-os com o tipo double.",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.println(\"Entre com o preço do primeiro produto:\");\ndouble produto1 = scan.nextDouble();\n\nSystem.out.println(\"Entre com o preço do segundo produto:\");\ndouble produto2 = scan.nextDouble();\n\ndouble valorTotal = produto1 + produto2;\n\nSystem.out.printf(\"\\nO valor total é R$ %.2f.\", valorTotal);"
+      "enunciado": "Crie um programa que recebe uma nota musical (A, B, C, D, E ou F) e fornece informações sobre ela, como a frequência.",
+      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.println(\"Digite a nota musical (A, B, C, D, E ou F):\");\nString nota = scan.nextLine().toUpperCase();\n\ndouble frequencia = 0;\n\nswitch (nota) {\n    case \"A\":\n        frequencia = 440.0;\n        break;\n    case \"B\":\n        frequencia = 493.88;\n        break;\n    case \"C\":\n        frequencia = 523.25;\n        break;\n    case \"D\":\n        frequencia = 587.33;\n        break;\n    case \"E\":\n        frequencia = 659.25;\n        break;\n    case \"F\":\n        frequencia = 698.46;\n        break;\n}\n\nif (frequencia != 0) {\n    System.out.println(\"A nota musical \" + nota + \" tem uma frequência de \" + frequencia + \" Hz.\");\n} else {\n    System.out.println(\"Nota musical inválida.\");\n}"
     },
     {
       "id": "03",
-      "enunciado": "Crie um programa que leia a distância percorrida por um carro (em km) e o tempo gasto (em horas) e escreva a velocidade média do carro. A fórmula de velocidade média é: vm = distancia(em metros) / tempo(em segundos)",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.println(\"Entre com a distância percorrida(em km): \" );\nint distanciaEmKm = scan.nextInt();\n\nSystem.out.println(\"Entre com o tempo gasto(em horas):\");\nint tempoGastoEmHoras = scan.nextInt();\n\nint distanciaEmMetros = distanciaEmKm * 1000;\nint tempoEmSegundos = tempoGastoEmHoras * 3600;\n\ndouble velocidadeMedia = (double) distanciaEmMetros / tempoEmSegundos;\n\nSystem.out.printf(\"A velocidade média é %.2f m/s.\", velocidadeMedia);"
+      "enunciado": "Desenvolva um conversor que recebe uma unidade de medida (metro, centímetro, quilômetro) e converte para outra unidade com base na entrada.",
+      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.println(\"Bem-vindo ao Conversor de Unidades de Medida!\");\nSystem.out.println(\"Por favor, selecione a unidade de entrada:\");\nSystem.out.println(\"1. Metro (m)\");\nSystem.out.println(\"2. Centímetro (cm)\");\nSystem.out.println(\"3. Quilômetro (km)\");\n\nint escolhaEntrada = scan.nextInt();\n\nSystem.out.println(\"Por favor, selecione a unidade de saída:\");\nSystem.out.println(\"1. Metro (m)\");\nSystem.out.println(\"2. Centímetro (cm)\");\nSystem.out.println(\"3. Quilômetro (km)\");\n\nint escolhaSaida = scan.nextInt();\n\nSystem.out.println(\"Por favor, insira o valor a ser convertido:\");\ndouble valor = scan.nextDouble();\n\ndouble resultado = 0;\n\nif (escolhaEntrada == 1) {\n    if (escolhaSaida == 1) {\n        resultado = valor;\n    } else if (escolhaSaida == 2) {\n        resultado = valor * 100;\n    } else if (escolhaSaida == 3) {\n        resultado = valor / 1000;\n    }\n} else if (escolhaEntrada == 2) {\n    if (escolhaSaida == 1) {\n        resultado = valor / 100;\n    } else if (escolhaSaida == 2) {\n        resultado = valor;\n    } else if (escolhaSaida == 3) {\n        resultado = valor / 100000;\n    }\n} else if (escolhaEntrada == 3) {\n    if (escolhaSaida == 1) {\n        resultado = valor * 1000;\n    } else if (escolhaSaida == 2) {\n        resultado = valor * 100000;\n    } else if (escolhaSaida == 3) {\n        resultado = valor;\n    }\n}\n\nif (resultado <= 3 && resultado >= 1) {\n    System.out.println(\"O valor convertido é: \" + resultado);\n} else {\n    System.out.println(\"Unidades de medida inválidas. Por favor, tente novamente.\");\n}"
     },
     {
       "id": "04",
-      "enunciado": "Crie um programa que leia o número de horas trabalhadas por um funcionário e o valor da hora de trabalho e escreva o salário bruto desse funcionário.",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.println(\"Entre com o número de horas trabalhadas:\");\nint horasTrabalhadas = scan.nextInt();\n\nSystem.out.println(\"Entre com o valor por hora de trabalho:\");\ndouble valorHora = scan.nextDouble();\n\ndouble salarioBruto = horasTrabalhadas * valorHora;\n\nSystem.out.printf(\"O salário bruto deste funcionário é R$ %.2f\", salarioBruto);"
+      "enunciado": "Faça um programa que inicia uma contagem regressiva a partir de 10 até 1, imprimindo cada número na tela.",
+      "solucaoSugerida": "for(int i = 10; i > 0; i--) {\n    System.out.println(i);\n}"
     },
     {
       "id": "05",
-      "enunciado": "Crie um programa que leia o valor de um empréstimo, a taxa de juros mensal e o número de meses e escreva o valor da parcela mensal do empréstimo.",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\ndouble valorEmprestimo, taxaJuros, valorTotal, valorParcela;\nint qtdMeses;\n\nSystem.out.println(\"Entre com o valor do empréstimo:\");\nvalorEmprestimo = scan.nextDouble();\n\nSystem.out.println(\"Qual a taxa de juros mensal?\");\ntaxaJuros = scan.nextDouble();\n\nSystem.out.println(\"O empréstimo foi em quantos meses?\");\nqtdMeses = scan.nextInt();\n\nvalorTotal = valorEmprestimo + (valorEmprestimo * (taxaJuros / 100) * qtdMeses);\nvalorParcela = valorTotal / qtdMeses;\n\nSystem.out.printf(\"O valor total com juros é R$ %.2f%n\", valorTotal);\nSystem.out.printf(\"O valor de cada parcela será de R$ %.2f%n\", valorParcela);"
+      "enunciado": "Implemente um jogo em que o computador escolhe um número aleatório entre 1 e 100, e o jogador tenta adivinhar. O jogo continua até que o jogador acerte o número.",
+      "solucaoSugerida": "Random r = new Random();\nScanner scan = new Scanner(System.in);\n\nint numeroSecreto = r.nextInt(100) + 1;\nint palpite = 0;\n\nSystem.out.println(\"Bem-vindo ao jogo de adivinhação!\");\nSystem.out.println(\"Tente adivinhar o número entre 1 e 100.\");\n\nwhile (palpite != numeroSecreto) {\n    System.out.print(\"Digite seu palpite: \");\n    palpite = scan.nextInt();\n\n    if (palpite < numeroSecreto) {\n        System.out.println(\"O número secreto é maior. Tente novamente.\");\n    } else if (palpite > numeroSecreto) {\n        System.out.println(\"O número secreto é menor. Tente novamente.\");\n    } else {\n        System.out.println(\"Parabéns! Você adivinhou o número!\");\n    }\n}"
     },
     {
       "id": "06",
-      "enunciado": "Crie um programa que leia a quantidade de litros de água consumidos por uma residência em um mês e escreva o valor da conta de água (considerando que cada litro de água custa R$0,02).",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\nint qtdLitros;\ndouble contaAgua, valorLitro = 0.02;\n\nSystem.out.println(\"Informe a quantidade de litros consumidos:\");\nqtdLitros = scan.nextInt(); \n\ncontaAgua = valorLitro * qtdLitros;\n\nSystem.out.printf(\"O valor da conta de água é: R$ %.2f%n\", contaAgua);"
+      "enunciado": "Crie um programa que receba um número inteiro e calcule a soma dos seus dígitos.",
+      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.print(\"Digite um número inteiro: \");\nint numero = scan.nextInt();\n\nint soma = 0;\nint aux = numero;\n\nwhile (aux != 0) {\n    soma += aux % 10;\n    aux /= 10;\n}\n\nSystem.out.println(\"A soma dos dígitos de \" + numero + \" é \" + soma);"
     },
     {
       "id": "07",
-      "enunciado": "Crie um programa que leia o peso de uma encomenda (em kg) e escreva o valor do frete (considerando que cada kg custa R$5,00).",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\ndouble fretePorKg = 5;\n\nSystem.out.println(\"Informe o peso da encomenda (em kg):\");\ndouble pesoEncomenda = scan.nextDouble();\n\ndouble frete = pesoEncomenda * fretePorKg; \n\nSystem.out.printf(\"O valor do frete é R$ %.2f%n\", frete);"
+      "enunciado": "Peça ao usuário para inserir um número e imprima a tabuada desse número de 1 a 10.",
+      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.print(\"Digite um número: \");\nint numero = scan.nextInt();\n\nSystem.out.println(\"Tabuada de \" + numero + \":\");\n\nfor (int i = 1; i <= 10; i++) {\n    int resultado = numero * i;\n    System.out.println(numero + \" x \" + i + \" = \" + resultado);\n}"
     },
     {
       "id": "08",
-      "enunciado": "Crie um programa que leia a cotação do dólar e um valor em reais e escreva o valor convertido em dólares.",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.println(\"Informe a cotação do dólar:\");\ndouble cotacaoDolar = scan.nextDouble();\n\nSystem.out.println(\"Informe o valor a ser convertido:\");\ndouble valorEmReais = scan.nextDouble();\n\ndouble valorConvertido = valorEmReais / cotacaoDolar;\n\nSystem.out.printf(\"O valor de R$ %.2f equivale a US$ %.2f.%n\", valorEmReais, valorConvertido);"
-    },
-    {
-      "id": "09",
-      "enunciado": "Crie um programa que leia a altura e largura de uma parede (em metros) e escreva a área da parede e a quantidade de tinta necessária para pintá-la (considerando que cada litro de tinta pinta 2m²).",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\ndouble alturaParede, larguraParede, qtdTinta;\n\nSystem.out.println(\"Entre com a altura da parede (m):\");\nalturaParede = scan.nextDouble();\n\nSystem.out.println(\"Entre com a largura da parede (m):\");\nlarguraParede = scan.nextDouble();\n\ndouble areaParede = alturaParede * larguraParede;\nqtdTinta = areaParede / 2;\n\nSystem.out.printf(\"A área da parede é %.2f m².%n\", areaParede);\nSystem.out.printf(\"A quantidade de tinta necessária é %.2f litros.%n\", qtdTinta);"
-    },
-    {
-      "id": "10",
-      "enunciado": "Crie um programa que leia o preço à vista de um produto e o número de parcelas e escreva o valor de cada parcela (considerando juros simples de 2% ao mês).",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\ndouble juros = 0.02;\n\nSystem.out.println(\"Insira o preço à vista do produto:\");\ndouble precoAVista = scan.nextDouble();\n\nSystem.out.println(\"Entre com o número de parcelas:\");\nint numParcelas = scan.nextInt();\n\ndouble precoAPrazo = precoAVista * (1 + juros * numParcelas);\ndouble valorParcela = precoAPrazo / numParcelas;\n\nSystem.out.printf(\"O valor de cada parcela é R$ %.2f.%n\", valorParcela);"
-    },
-    {
-      "id": "11",
-      "enunciado": "Escreva um programa que leia um número inteiro do usuário e diga se ele é par ou ímpar.",
-      "solucaoSugerida": "System.out.println(\"Digite um número inteiro:\");\nint numero = scan.nextInt();\n\nif(numero % 2 == 0) {\nSystem.out.println(\"O número digitado é par.\");\n\n} else {\nSystem.out.println(\"O número digitado é ímpar.\");\n\n}"
-    },
-    {
-      "id": "12",
-      "enunciado": "Escreva um programa que leia dois números inteiros do usuário e diga qual é o maior, o menor ou se são iguais.",
-      "solucaoSugerida": "System.out.println(\"Digite um número inteiro:\");\nint numero = scan.nextInt();\n\nSystem.out.println(\"Digite outro número inteiro:\");\nint outroNumero = scan.nextInt();\n\nif(numero > outroNumero) {\nSystem.out.println(\"O primeiro número é maior.\");\n\n} else if (numero < outroNumero) {\nSystem.out.println(\"O segundo número é maior.\");\n\n} else {\nSystem.out.println(\"Os dois números são iguais.\");\n\n}"
-    },
-    {
-      "id": "13",
-      "enunciado": "Faça um programa que leia três notas de um aluno e calcule a média. Se a média for maior ou igual a 7, o aluno está aprovado. Se a média for menor que 4, o aluno está reprovado. Se a média estiver entre 4 e 7, o aluno precisa fazer uma prova final. O programa deve escrever a situação do aluno, juntamente com sua média.",
-      "solucaoSugerida": "System.out.println(\"Digite a primeira nota: \");\nnota1 = scan.nextDouble();\nSystem.out.println(\"Digite a segunda nota: \");\nnota2 = scan.nextDouble();\nSystem.out.println(\"Digite a terceira nota: \");\nnota3 = scan.nextDouble();\n\ndouble media = (nota1 + nota2 + nota3) / 3;\n\nString situacao;\nif (media >= 7) {\nsituacao = \"Aprovado\";\n} else if (media < 4) {\nsituacao = \"Reprovado\";\n} else {\nsituacao = \"Prova final\";\n}\n\nSystem.out.println(\"Situação do aluno: \" + situacao);"
-    },
-    {
-      "id": "14",
-      "enunciado": "Escreva um programa que leia a idade de uma pessoa e diga se ela pode votar ou não nas eleições. No Brasil, o voto é obrigatório para pessoas entre 18 e 70 anos, e facultativo para pessoas entre 16 e 18 anos ou maiores de 70 anos.",
-      "solucaoSugerida": "System.out.println(\"Digite o nome da pessoa: \");\nnome = scan.nextLine();\nSystem.out.println(\"Digite a idade da pessoa: \");\nidade = scan.nextInt();\n\nString situacao;\nif (idade >= 18 && idade <= 70) {\nsituacao = \"deve votar\";\n} else if (idade >= 16 && idade <= 17 || idade > 70) {\nsituacao = \"pode votar, mas é facultativo\";\n} else {\nsituacao = \"não pode votar\";\n}\n\nSystem.out.println(nome + \" \" + situacao);"
-    },
-    {
-      "id": "15",
-      "enunciado": "Escreva um programa que leia o mês do ano em número (1 a 12) e diga quantos dias ele tem. Considere que o ano não é bissexto.",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.println(\"Digite o mês (1 a 12): \");\nint mes = scan.nextInt();\n\nif (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {\nSystem.out.println(\"O mês \" + mes + \" tem 31 dias.\");\n} else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {\nSystem.out.println(\"O mês \" + mes + \" tem 30 dias.\");\n} else {\nSystem.out.println(\"O mês \" + mes + \" tem 28 dias.\");\n}"
-    },
-    {
-      "id": "16",
-      "enunciado": "Escreva um programa que leia uma letra do alfabeto e diga se ela é uma vogal ou uma consoante. Lembre-se que, na comparação de Strings, usa-se o método **`.equals()`** ou o `.equalsIgnoreCase()`.",
-      "solucaoSugerida": "String letra = scan.next().toLowerCase();\n\nif(letra.equals(\"a\") ||\nletra.equals(\"e\") ||\nletra.equals(\"i\") ||\nletra.equals(\"o\") ||\nletra.equals(\"u\")) {\nSystem.out.println(\"Vogal\");\n} else {\nSystem.out.println(\"Consoante\");\n}"
-    },
-    {
-      "id": "17",
-      "enunciado": "Escreva um programa que leia dois números inteiros e um operador aritmético (+, -, *, /) e realize a operação correspondente. Se o operador não for válido, mostre uma mensagem de erro.",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nint numero1, numero2;\nchar operador;\n\nSystem.out.println(\"Digite o primeiro número: \");\nnumero1 = scan.nextInt();\nSystem.out.println(\"Digite o segundo número: \");\nnumero2 = scan.nextInt();\nSystem.out.println(\"Digite o operador aritmético (+, -, *, /): \");\noperador = scan.next().charAt(0);\n\nif (operador == '+') {\nSystem.out.println(numero1 + numero2);\n} else if (operador == '-') {\nSystem.out.println(numero1 - numero2);\n} else if (operador == '*') {\nSystem.out.println(numero1 * numero2);\n} else if (operador == '/') {\nSystem.out.println(numero1 / numero2);\n} else {\nSystem.out.println(\"Operador inválido.\");\n}"
-    },
-    {
-      "id": "18",
-      "enunciado": "Escreva um programa que leia o preço de um produto e a forma de pagamento escolhida pelo cliente: → 1 - em espécie → 2 - cartão de crédito → 3 - cartão de débito. Mostre o valor final da compra. Considere que o produto tem 10% de desconto se for pago em espécie ou no cartão de débito e não tem desconto se for pago no cartão de crédito.",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\nSystem.out.println(\"Digite o preço do produto: \");\ndouble preco = scan.nextDouble();\nSystem.out.println(\"Digite a forma de pagamento (1 - à vista, 2 - no cartão de crédito, 3 - no cartão de débito): \");\nint formaPagamento = scan.nextInt();\n\ndouble valorFinal;\n\nif (formaPagamento == 1 || formaPagamento == 3) {\nvalorFinal = preco * 0.9;\n} else {\nvalorFinal = preco;\n}\n\nSystem.out.println(\"Valor final da compra: R$\" + valorFinal);"
-    },
-    {
-      "id": "19",
-      "enunciado": "Escreva um programa que leia a temperatura em graus Celsius e converta para graus Fahrenheit ou Kelvin, de acordo com a escolha do usuário. A fórmula para converter Celsius para Fahrenheit é: F = (C * 9/5) + 32. A fórmula para converter Celsius para Kelvin é K = C + 273.15.",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\ndouble temperaturaCelsius;\nint escolha;\n\nSystem.out.println(\"Digite a temperatura em graus Celsius: \");\ntemperaturaCelsius = scan.nextDouble();\n\nSystem.out.println(\"Deseja converter para Fahrenheit (1) ou Kelvin (2)? \");\nescolha = scan.nextInt();\n\nif (escolha == 1) {\ndouble temperaturaFahrenheit = (temperaturaCelsius * 9 / 5) + 32;\nSystem.out.println(\"A temperatura em graus Fahrenheit é: \" + temperaturaFahrenheit);\n} else {\ndouble temperaturaKelvin = temperaturaCelsius + 273.15;\nSystem.out.println(\"A temperatura em graus Kelvin é: \" + temperaturaKelvin);\n}"
-    },
-    {
-      "id": "20",
-      "enunciado": "Escreva um programa que leia o salário de um funcionário e aplique um aumento de acordo com a seguinte tabela: Faixa salarial: Até R$ 1.500,00 Percentual de Aumento: 15% Faixa Salarial: De R$ 1.500,01 até R$ 2.500,00 Percentual de Aumento: 10% Faixa Salarial: Acima de R$ 2.500,00 Percentual de Aumento: 5%",
-      "solucaoSugerida": "Scanner scan = new Scanner(System.in);\n\ndouble salario, aumento, salarioAjustado;\n\nSystem.out.println(\"Digite o salário do funcionário: \");\nsalario = scan.nextDouble();\n\nif (salario <= 1500) {\naumento = salario * 0.15;\n} else if (salario <= 2500) {\naumento = salario * 0.10;\n} else {\naumento = salario * 0.05;\n}\n\nsalarioAjustado = salario + aumento;\n\nSystem.out.println(\"O salário ajustado é: R$\" + salarioAjustado);"
+      "enunciado": "Desenvolva um programa que use um loop while para gerar uma sequência de números pares a partir de 2 e imprima cada número na tela até que o número gerado seja maior do que 20.",
+      "solucaoSugerida": "int numero = 2;\n\nwhile (numero <= 20) {\n    System.out.println(numero);\n    numero += 2;\n}"
     }
   ]
 }
